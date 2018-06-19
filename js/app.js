@@ -1,3 +1,5 @@
+const score = document.querySelector('.score');
+
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -59,6 +61,8 @@ var Player = function() {
     this.posY = 400;
     this.width = 85;
     this.height = 80;
+    this.score = 0;
+    this.isCollision = false;
 };
 
 // Update the enemy's position, required method for game
@@ -67,8 +71,22 @@ Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    score.innerHTML = this.score;
 };
 
+Player.prototype.reset = function() {
+  if(this.isCollision === true){
+      if(this.score >= 5){
+          this.score -= 5;
+      }
+      this.isCollision = false;
+  }
+  else{
+      this.score += 10;
+  }
+  this.posX = 200;
+  this.posY = 400;
+}
 // Draw the enemy on the screen, required method for game
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.posX, this.posY);
@@ -86,8 +104,7 @@ Player.prototype.handleInput = function(input) {
                 this.posY -= 80;
             }
             if(this.posY < 80){
-                //addscore
-                //player move to initial
+                this.reset();
             }
             break;
         case 'right':
@@ -101,23 +118,8 @@ Player.prototype.handleInput = function(input) {
             }
             break;
     }
-  /*  if(this.posY > 70 && this.posY < 250){
-        checkCollisions();
-    } */
 };
 
-/*
-    function checkCollisions(){
-        allEnemies.forEach(function(enemy) {
-          console.log("enemyX" + enemy.posX + "playerX" + player.posX);
-          console.log("enemyY" + enemy.posY + "playerY" + player.posY);
-            if(enemy.posX < player.posX +  && enemy.posY === player.posY){
-                console.log("collision happened");
-                reset();
-            }
-      });
-    }
-*/
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player

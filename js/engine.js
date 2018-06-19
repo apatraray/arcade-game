@@ -15,8 +15,8 @@
 
  //add a addscore
  //add lifetime
- //add timer
  //winning modal
+ const lives = document.querySelector('.lives');
 
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
@@ -96,7 +96,8 @@ var Engine = (function(global) {
                 console.log("collision happened");
                 console.log("enemy.posX: " + enemy.posX + "player.posX: " + player.posX);
                 console.log("enemy.posY: " + enemy.posY + "player.posY: " + player.posY);
-                reset();
+                player.isCollision = true;
+                player.reset();
             }
       });
     }

@@ -25,31 +25,23 @@ h1 {
     color: #121256;
 }
 .score-panel {
-    text-align: left;
+    text-align: start;
     width: 505px;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 .score-panel .scoreText {
-    width: 33%%;
     color: brown;
-    font-size: 1em;
-}
-.score-panel .play {
-    width: 33%;
-    color: brown;
-    font-size: 1em;
+    font-size: 1.5em;
 }
 .score-panel .lives {
-    width: 33%;
-    color: brown;
-    font-size: 1em;
+    float: right;
 }
 .score-panel .lives li {
-    display: none;
+  list-style: none;
+  display: inline-block;
 }
 .score-panel .lives li .present{
-    list-style: none;
-    display: inline-block;
+
 }
 
 /*
