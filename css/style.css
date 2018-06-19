@@ -1,0 +1,136 @@
+html {
+    box-sizing: border-box;
+}
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey;
+}
+body {
+    text-align: center;
+}
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 350;
+    color: #121256;
+}
+.score-panel {
+    text-align: left;
+    width: 505px;
+    margin-bottom: 10px;
+}
+.score-panel .scoreText {
+    width: 33%%;
+    color: brown;
+    font-size: 1em;
+}
+.score-panel .play {
+    width: 33%;
+    color: brown;
+    font-size: 1em;
+}
+.score-panel .lives {
+    width: 33%;
+    color: brown;
+    font-size: 1em;
+}
+.score-panel .lives li {
+    display: none;
+}
+.score-panel .lives li .present{
+    list-style: none;
+    display: inline-block;
+}
+
+/*
+ * Styles for the modals
+ */
+
+/* Modal implemented from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    justify-content: center;
+    align-items: center;
+    width: 40%; /* Full width */
+    height: 40%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.win-box {
+    background-color: lightgreen;
+    display: block;
+}
+
+.fail-box {
+    background-color: #f97e72;
+    display: block;
+}
+
+.win-time {
+    color: red;
+}
+
+.win-stars {
+    color: red;
+}
+
+/*
+ * Styles to make the game responsive
+ */
+@media only screen and (min-width: 700px) {
+    .container {
+        width: 100%;
+    }
+    .score-panel .timer {
+        left: 50%;
+    }
+}
+@media only screen and (min-width: 665px) {
+    .deck {
+        width: 600px;
+    }
+}
+@media only screen and (min-width: 350px) and (max-width: 665px) {
+    .deck {
+        width: 300px;
+    }
+    .deck .card {
+        height: 60px;
+        width: 80px;
+    }
+    .score-panel {
+        width: 300px;
+        margin-bottom: 2px;
+    }
+}
