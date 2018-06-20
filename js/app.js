@@ -1,4 +1,5 @@
 const score = document.querySelector('.score');
+const lives = document.querySelector('.lives');
 
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
@@ -63,6 +64,7 @@ var Player = function() {
     this.height = 80;
     this.score = 0;
     this.isCollision = false;
+    this.lives = 3;
 };
 
 // Update the enemy's position, required method for game
@@ -71,19 +73,10 @@ Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    score.innerHTML = this.score;
 };
 
 Player.prototype.reset = function() {
-  if(this.isCollision === true){
-      if(this.score >= 5){
-          this.score -= 5;
-      }
-      this.isCollision = false;
-  }
-  else{
-      this.score += 10;
-  }
+  updateScore();
   this.posX = 200;
   this.posY = 400;
 }
@@ -126,6 +119,31 @@ Player.prototype.handleInput = function(input) {
 
 const player = new Player();
 
+function updateScore(){
+    if(player.isCollision === true){
+        if(player.score >= 5){
+            player.score -= 5;
+        }
+        updateLives();
+        player.isCollision = false;
+    }
+    else{
+        player.score += 10;
+    }
+    score.innerHTML = player.score;
+
+    if(player.score === 100){
+        console.log("pass");
+    }
+}
+
+function updateLives(){
+    player.lives--;
+    lives.children[2-player.lives].firstChild.classList.add('absent');
+    if(player.lives === 0){
+        console.log("fail");
+    }
+}
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {

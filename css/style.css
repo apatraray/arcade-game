@@ -37,11 +37,11 @@ h1 {
     float: right;
 }
 .score-panel .lives li {
-  list-style: none;
-  display: inline-block;
+    list-style: none;
+    display: inline-block;
 }
-.score-panel .lives li .present{
-
+.score-panel .lives li .absent{
+    display: none;
 }
 
 /*

@@ -13,11 +13,6 @@
  * writing app.js a little simpler to work with.
  */
 
- //add a addscore
- //add lifetime
- //winning modal
- const lives = document.querySelector('.lives');
-
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -89,13 +84,8 @@ var Engine = (function(global) {
 
     function checkCollisions(){
         allEnemies.forEach(function(enemy) {
-//          console.log("enemyX" + enemy.posX + "playerX" + player.posX);
-  //        console.log("enemyY" + enemy.posY + "playerY" + player.posY);
             if(!(enemy.posX + enemy.width < player.posX || player.posX + player.width  < enemy.posX
               || enemy.posY + enemy.height < player.posY || player.posX + player.height < enemy.posY)){
-                console.log("collision happened");
-                console.log("enemy.posX: " + enemy.posX + "player.posX: " + player.posX);
-                console.log("enemy.posY: " + enemy.posY + "player.posY: " + player.posY);
                 player.isCollision = true;
                 player.reset();
             }
