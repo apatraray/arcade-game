@@ -3,13 +3,8 @@ const lives = document.querySelector('.lives');
 const modalList = document.querySelectorAll('.modal');
 const btn = document.querySelector(".myBtn");
 
-// Enemies our player must avoid
+// Enemy class with properties
 var Enemy = function(x, y, speed) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.posX = x;
     this.posY = y;
@@ -18,8 +13,11 @@ var Enemy = function(x, y, speed) {
     this.height = 76;
 };
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
+/* This function updates the enemy position according to the change in time.
+ * If the enemy reaches the end of the canvas, set the position of the
+ * enemy to the starting of the canvas to any of the random place in the rock.
+ * Set the speed to random value for each enemy.
+ */
 Enemy.prototype.update = function(dt) {
     if(this.posX > 505){
         this.posX = 0;
@@ -31,34 +29,29 @@ Enemy.prototype.update = function(dt) {
     }
 };
 
-// Draw the enemy on the screen, required method for game
+// Draw the enemy on the screen
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.posX, this.posY);
 };
 
+// Instantiate three enemies and put them in an array.
 let allEnemies = [];
 for(let iterator=0; iterator<3; iterator++){
-  let height = getRandomInt(40, 180);
-  let speed = Math.floor(Math.random() * 300) + 60;
-  let enemy = new Enemy(0, height, speed);
-  allEnemies.push(enemy);
+    let height = getRandomInt(40, 180);
+    let speed = Math.floor(Math.random() * 300) + 60;
+    let enemy = new Enemy(0, height, speed);
+    allEnemies.push(enemy);
 }
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+// function to write random number between two numbers.
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
+// Player class with properties
 var Player = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
     this.sprite = 'images/char-pink-girl.png';
     this.posX = 200;
     this.posY = 400;
@@ -70,12 +63,7 @@ var Player = function() {
     this.isRestart = false;
 };
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
 Player.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
 };
 
 Player.prototype.reset = function() {
@@ -83,11 +71,17 @@ Player.prototype.reset = function() {
   this.posX = 200;
   this.posY = 400;
 }
-// Draw the enemy on the screen, required method for game
+
+// Draw the player on the screen, required method for game
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.posX, this.posY);
 };
-// Draw the enemy on the screen, required method for game
+
+/* This function updates the player position according to user input.
+ * Check that the player is within the canvas always.
+ * If the player reaches the water, call the reset() function for the player.
+ * Set the speed to random value for each player.
+ */
 Player.prototype.handleInput = function(input) {
     switch(input){
         case 'left':
@@ -116,12 +110,15 @@ Player.prototype.handleInput = function(input) {
     }
 };
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
+// Instantiate the player object.
 const player = new Player();
 
+/* This function updates the score.
+ * If there is a collision, deduct the score by five points if the score is >=5.
+ * Update the lives.
+ * If there is no collision, add the score by ten.
+ * If player score is equal to or more than 100, winning modal appears.
+ */
 function updateScore(){
     if(player.isCollision === true){
         if(player.score >= 5){
@@ -140,6 +137,10 @@ function updateScore(){
     }
 }
 
+/* This function updates the lives.
+ * If there is a collision, deduct one live till all lives are gone.
+ * Show a modal when all the lives are gone.
+ */
 function updateLives(){
     player.lives--;
     if(player.lives >= 0){
@@ -151,7 +152,7 @@ function updateLives(){
     }
 }
 // This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
@@ -163,6 +164,8 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+//add event listener for game rules button so that modal appears that is
+//showing the rules for the game.
 document.getElementById("btn").addEventListener('click', function(e){
     document.querySelector('.modal-btn').classList.add('btn-how-to-play');
     document.querySelector('.modal-btn').addEventListener('click', closeNewModal);
@@ -175,7 +178,6 @@ function closeNewModal(event){
 * add event listener to modal
 *   - close modal when clicked anywhere in modal
 */
-
 modalList.forEach(function(modal){
     modal.addEventListener('click', closeModal);
 });

@@ -1,6 +1,7 @@
 html {
     box-sizing: border-box;
 }
+
 html,
 body {
     width: 100%;
@@ -9,9 +10,11 @@ body {
     padding: 0;
     background-color: lightgrey;
 }
+
 body {
     text-align: center;
 }
+
 .container {
     width: 100%;
     display: flex;
@@ -19,24 +22,23 @@ body {
     align-items: center;
     flex-direction: column;
 }
+
 h1 {
     font-family: "Open Sans", sans-serif;
     color: blueViolet;
 }
+
+/*
+ * Styles for the score-panel
+ */
 .score-panel {
     text-align: center;
     width: 505px;
     margin-bottom: 0;
 }
+
 .score-panel .score-text {
     float: left;
-    color: brown;
-    font-size: 1.5em;
-}
-
-.score-panel .restart {
-    float: center;
-    cursor: pointer;
     color: brown;
     font-size: 1.5em;
 }
@@ -44,10 +46,12 @@ h1 {
 .score-panel .lives {
     float: right;
 }
+
 .score-panel .lives li {
     list-style: none;
     display: inline-block;
 }
+
 .score-panel .lives li .absent{
     display: none;
 }
@@ -55,7 +59,6 @@ h1 {
 /*
  * Styles for the modals
  */
-
 /* Modal implemented from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal*/
 .modal, .modal-btn {
     display: none; /* Hidden by default */
@@ -84,15 +87,15 @@ h1 {
 }
 
 .btn-how-to-play {
-  background-color: lightyellow;
-  width: 100%;
-  height: 100%;
-  display: block;
+    background-color: lightyellow;
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
-#btn{
-  background-color: lightyellow;
-  text-align: center;
-  padding: 10px;
-  margin: 10px;
+#btn {
+    background-color: lightyellow;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
 }

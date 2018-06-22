@@ -1,6 +1,28 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Table of Contents
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+* [Link](#Link)
+* [Instructions](#instructions)
+* [Dependencies](#Dependencies)
+
+## Link
+
+Game can be accessed using index.html after downloading the file from (https://github.com/apatraray/arcade-game.git)
+
+## Instructions
+
+- Player goal is to reach water without colliding enemies.
+- On reaching water, player is rewarded with 10 points.
+- On getting collided by enemy, there is deduction of 5 points.
+- The player can move left, right, up and down.
+- If the score is equal to or more than 100 points, the player is declared as winner.
+
+## Dependencies
+
+This game contains following dependencies:
+- https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+- https://fonts.googleapis.com/css?family=Coda
+
+Game can be accessed using index.html after downloading the file from (https://github.com/apatraray/arcade-game.git)

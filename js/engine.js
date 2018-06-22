@@ -81,6 +81,10 @@ var Engine = (function(global) {
         checkCollisions();
     }
 
+    /* This function checks if there is a collision between the player and the
+     * enemy. Then set isCollision property for that player as true and call
+     * the reset() function for the player.
+     */
     function checkCollisions(){
         allEnemies.forEach(function(enemy) {
             if(!(enemy.posX + enemy.width < player.posX || player.posX + player.width  < enemy.posX
