@@ -1,50 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Effective JavaScript: Frogger</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div class="container">
-    <header>
-        <h1>Arcade Game</h1>
-    </header>
-    <section class="score-panel">
-        <ul class="lives">
-          <li><img class="newLive" src="images/char-pink-girl-small.png" alt="pink girl image"></img></li>
-          <li><img class="newLive" src="images/char-pink-girl-small.png" alt="pink girl image"></img></li>
-          <li><img class="newLive" src="images/char-pink-girl-small.png" alt="pink girl image"></img></li>
-        </ul>
-        <span class="scoreText">Score:
-            <span class="score">0</span>
-        </span>
-    </section>
-    <!-- Modal if user wins the match -->
-<div class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Congratulations!!</p>
-        <p>You took <span class="win-time"></span> time to win the match</p>
-        <p>You have earned <span class="win-stars"></span> stars</p>
-        <p>If you want to play again, refresh the page.</p>
-    </div>
-</div>
-<!-- Modal if user fails the match -->
-<div class="modal">
-   <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Sorry!! Time over!!</p>
-        <p>If you want to play again, refresh the page.</p>
-   </div>
-</div>
-</div>
-    <script src="js/resources.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/engine.js"></script>
-    <footer>
-        <button>Game Rules</button>
-    </footer>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Effective JavaScript: Frogger</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Arcade Game</h1>
+            </header>
+            <section class="score-panel">
+                <ul class="lives">
+                    <li><img class="new-live" src="images/char-pink-girl-small.png" alt="pink girl image"></img></li>
+                    <li><img class="new-live" src="images/char-pink-girl-small.png" alt="pink girl image"></img></li>
+                    <li><img class="new-live" src="images/char-pink-girl-small.png" alt="pink girl image"></img></li>
+                </ul>
+                <span class="score-text">Score:
+                    <span class="score">0</span>
+                </span>
+            </section>
+            <div class="myBtn">
+                <button id="btn">How to Play</button>
+            </div>
+            <!-- Modal if user wins the match -->
+            <div class="modal">
+                <p>Congratulations!!</p>
+                <p>You won the match</p>
+                <div class="modal-footer">
+                    <button class="modal-close">Close</button>
+                </div>
+            </div>
+            <!-- Modal if user fails the match -->
+            <div class="modal">
+                <p>Game over!!</p>
+                <div class="modal-footer">
+                    <button class="modal-close">Close</button>
+                </div>
+            </div>
+            <div class="modal-btn">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                </div>
+                <div class="modal-body">
+                    <h2>Rules of Game:</h2>
+                    <ol>
+                        <li>Player goal is to reach water without colliding enemies.</li>
+                        <li>On reaching water, player is rewarded with 10 points.</li>
+                        <li>On getting collided by enemy, there is deduction of 5 points.</li>
+                        <li>The player can move left, right, up and down.</li>
+                        <li>If the score is equal to or more than 100 points, the player is declared as winner</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button class="modal-close">Close</button>
+                </div>
+            </div>
+            <script src="js/resources.js"></script>
+            <script src="js/app.js"></script>
+            <script src="js/engine.js"></script>
+        </div>
+    </body>
 </html>

@@ -21,18 +21,26 @@ body {
 }
 h1 {
     font-family: "Open Sans", sans-serif;
-    font-weight: 350;
-    color: #121256;
+    color: blueViolet;
 }
 .score-panel {
-    text-align: start;
+    text-align: center;
     width: 505px;
     margin-bottom: 0;
 }
-.score-panel .scoreText {
+.score-panel .score-text {
+    float: left;
     color: brown;
     font-size: 1.5em;
 }
+
+.score-panel .restart {
+    float: center;
+    cursor: pointer;
+    color: brown;
+    font-size: 1.5em;
+}
+
 .score-panel .lives {
     float: right;
 }
@@ -49,34 +57,20 @@ h1 {
  */
 
 /* Modal implemented from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal*/
-.modal {
+.modal, .modal-btn {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     justify-content: center;
     align-items: center;
+    text-align: center;
     width: 40%; /* Full width */
     height: 40%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 20%;
-}
-
-/* The Close Button */
-.close {
+.modal-close {
     color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
 }
 
 .win-box {
@@ -89,40 +83,16 @@ h1 {
     display: block;
 }
 
-.win-time {
-    color: red;
+.btn-how-to-play {
+  background-color: lightyellow;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
-.win-stars {
-    color: red;
-}
-
-/*
- * Styles to make the game responsive
- */
-@media only screen and (min-width: 700px) {
-    .container {
-        width: 100%;
-    }
-    .score-panel .timer {
-        left: 50%;
-    }
-}
-@media only screen and (min-width: 665px) {
-    .deck {
-        width: 600px;
-    }
-}
-@media only screen and (min-width: 350px) and (max-width: 665px) {
-    .deck {
-        width: 300px;
-    }
-    .deck .card {
-        height: 60px;
-        width: 80px;
-    }
-    .score-panel {
-        width: 300px;
-        margin-bottom: 2px;
-    }
+#btn{
+  background-color: lightyellow;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
 }

@@ -1,5 +1,7 @@
 const score = document.querySelector('.score');
 const lives = document.querySelector('.lives');
+const modalList = document.querySelectorAll('.modal');
+const btn = document.querySelector(".myBtn");
 
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
@@ -65,6 +67,7 @@ var Player = function() {
     this.score = 0;
     this.isCollision = false;
     this.lives = 3;
+    this.isRestart = false;
 };
 
 // Update the enemy's position, required method for game
@@ -132,16 +135,19 @@ function updateScore(){
     }
     score.innerHTML = player.score;
 
-    if(player.score === 100){
-        console.log("pass");
+    if(player.score >= 100){
+        modalList[0].classList.add('win-box');
     }
 }
 
 function updateLives(){
     player.lives--;
-    lives.children[2-player.lives].firstChild.classList.add('absent');
+    if(player.lives >= 0){
+        lives.children[2-player.lives].firstChild.classList.add('absent');
+    }
+
     if(player.lives === 0){
-        console.log("fail");
+        modalList[1].classList.add('fail-box');
     }
 }
 // This listens for key presses and sends the keys to your
@@ -156,3 +162,23 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+document.getElementById("btn").addEventListener('click', function(e){
+    document.querySelector('.modal-btn').classList.add('btn-how-to-play');
+    document.querySelector('.modal-btn').addEventListener('click', closeNewModal);
+function closeNewModal(event){
+    document.querySelector('.modal-btn').style.display = "none";
+}
+});
+
+/*
+* add event listener to modal
+*   - close modal when clicked anywhere in modal
+*/
+
+modalList.forEach(function(modal){
+    modal.addEventListener('click', closeModal);
+});
+function closeModal(event){
+    this.style.display = "none";
+}
